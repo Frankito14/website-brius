@@ -1,26 +1,28 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary: #137fec;
+  --color-background-light: #f6f7f8;
+  --color-background-dark: #101922; /* Retained for tailwind compatibility if needed, but not used */
+  --font-display: "Manrope", sans-serif;
+  --font-sans: "Manrope", sans-serif; /* Set Manrope as default sans */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (min-width: 1024px) {
+    padding-inline: 2.5rem;
   }
+}
+
+:root {
+  --background: #f6f7f8;
+  --foreground: #0d141b;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }

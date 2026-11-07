@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="estBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C53A6A"/>
+      <stop offset="50%" stop-color="#8E204A"/>
+      <stop offset="100%" stop-color="#2D0D1E"/>
+    </linearGradient>
+    <linearGradient id="glowEst" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCAFC5" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#F45B8A" stop-opacity="0.05"/>
+    </linearGradient>
+    <radialGradient id="radialEst" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#FFD3DF" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#2D0D1E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background base -->
+  <rect width="800" height="600" fill="url(#estBg)" />
+  <rect width="800" height="600" fill="url(#radialEst)" />
+
+  <!-- Gentle organic waves / curved lines for wellness & beauty vibe -->
+  <g stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5" fill="none">
+    <path d="M-50,150 Q200,80 400,200 T850,160" />
+    <path d="M-50,280 Q250,200 450,340 T850,290" />
+    <path d="M-50,420 Q180,360 420,460 T850,410" />
+  </g>
+
+  <!-- Ambient light blobs -->
+  <circle cx="280" cy="240" r="170" fill="url(#glowEst)" filter="blur(40px)" />
+  <circle cx="560" cy="380" r="130" fill="#E84077" fill-opacity="0.18" />
+
+  <!-- Beauty / Wellness lotus & sparkles emblem -->
+  <g transform="translate(400, 280)">
+    <!-- Concentric aura -->
+    <circle cx="0" cy="0" r="130" fill="none" stroke="#FFD3DF" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="6 6" />
+    <circle cx="0" cy="0" r="105" fill="#4A102A" fill-opacity="0.4" stroke="#FCAFC5" stroke-width="1.5" stroke-opacity="0.4" />
+
+    <!-- Stylized Lotus / Flower petals -->
+    <!-- Central petal -->
+    <path d="M0,-65 C-22,-30 -22,25 0,45 C22,25 22,-30 0,-65 Z" fill="#FFE9EF" fill-opacity="0.4" stroke="#FFE9EF" stroke-width="1.5" />
+    <!-- Left petal -->
+    <path d="M-10,-45 C-45,-20 -50,25 -2,42 C-15,15 -18,-15 -10,-45 Z" fill="#FCAFC5" fill-opacity="0.3" stroke="#FFE9EF" stroke-width="1" />
+    <!-- Right petal -->
+    <path d="M10,-45 C45,-20 50,25 2,42 C15,15 18,-15 10,-45 Z" fill="#FCAFC5" fill-opacity="0.3" stroke="#FFE9EF" stroke-width="1" />
+    <!-- Far left base -->
+    <path d="M-15,-15 C-65,0 -60,40 -2,44 C-30,30 -35,10 -15,-15 Z" fill="#F45B8A" fill-opacity="0.25" />
+    <!-- Far right base -->
+    <path d="M15,-15 C65,0 60,40 2,44 C30,30 35,10 15,-15 Z" fill="#F45B8A" fill-opacity="0.25" />
+
+    <!-- Sparkles -->
+    <path d="M-65,-60 L-60,-50 L-50,-45 L-60,-40 L-65,-30 L-70,-40 L-80,-45 L-70,-50 Z" fill="#FFF6F8" opacity="0.85" />
+    <path d="M65,-70 L68,-63 L75,-60 L68,-57 L65,-50 L62,-57 L55,-60 L62,-63 Z" fill="#FFF6F8" opacity="0.75" />
+    <path d="M70,30 L73,36 L80,39 L73,42 L70,48 L67,42 L60,39 L67,36 Z" fill="#FFF6F8" opacity="0.65" />
+  </g>
+
+  <!-- Typography watermark -->
+  <text x="400" y="470" text-anchor="middle" fill="#FFE9EF" fill-opacity="0.8" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" letter-spacing="4">
+    ESTÉTICA & BIENESTAR
+  </text>
+  <text x="400" y="500" text-anchor="middle" fill="#FCAFC5" fill-opacity="0.55" font-family="system-ui, -apple-system, sans-serif" font-size="14" letter-spacing="2">
+    SUPERVISIÓN MÉDICA
+  </text>
+</svg>

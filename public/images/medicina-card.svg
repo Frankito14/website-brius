@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="medBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A5F92"/>
+      <stop offset="50%" stop-color="#0C4C75"/>
+      <stop offset="100%" stop-color="#0A1A33"/>
+    </linearGradient>
+    <linearGradient id="glowMed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3DB6EE" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#139BDB" stop-opacity="0.05"/>
+    </linearGradient>
+    <radialGradient id="radialAccent" cx="60%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#7DD0F7" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0A1A33" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background base -->
+  <rect width="800" height="600" fill="url(#medBg)" />
+  <rect width="800" height="600" fill="url(#radialAccent)" />
+
+  <!-- Subtle grid lines pattern for clinical / tech vibe -->
+  <g stroke="#ffffff" stroke-opacity="0.06" stroke-width="1">
+    <line x1="0" y1="120" x2="800" y2="120" />
+    <line x1="0" y1="240" x2="800" y2="240" />
+    <line x1="0" y1="360" x2="800" y2="360" />
+    <line x1="0" y1="480" x2="800" y2="480" />
+    <line x1="160" y1="0" x2="160" y2="600" />
+    <line x1="320" y1="0" x2="320" y2="600" />
+    <line x1="480" y1="0" x2="480" y2="600" />
+    <line x1="640" y1="0" x2="640" y2="600" />
+  </g>
+
+  <!-- Background ambient shapes -->
+  <circle cx="580" cy="220" r="180" fill="url(#glowMed)" filter="blur(40px)" />
+  <circle cx="260" cy="420" r="140" fill="#0A78B4" fill-opacity="0.15" />
+
+  <!-- Abstract cross / medical emblem geometric elements -->
+  <g transform="translate(400, 290)">
+    <!-- Outer decorative ring -->
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#7DD0F7" stroke-width="2" stroke-opacity="0.25" stroke-dasharray="8 8" />
+    <circle cx="0" cy="0" r="110" fill="#0E3E5F" fill-opacity="0.4" stroke="#3DB6EE" stroke-width="1.5" stroke-opacity="0.4" />
+
+    <!-- Pulse / EKG line -->
+    <path d="M-150,0 L-70,0 L-45,-40 L-20,45 L10,-60 L35,30 L55,-15 L75,0 L150,0" 
+          fill="none" stroke="#3DB6EE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />
+    
+    <!-- Central Stethoscope / Cross hybrid emblem -->
+    <rect x="-18" y="-55" width="36" height="110" rx="8" fill="#ffffff" fill-opacity="0.15" />
+    <rect x="-55" y="-18" width="110" height="36" rx="8" fill="#ffffff" fill-opacity="0.15" />
+  </g>
+
+  <!-- Badge watermark text -->
+  <text x="400" y="475" text-anchor="middle" fill="#B9E5FB" fill-opacity="0.75" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" letter-spacing="4">
+    ATENCIÓN MÉDICA INTEGRAL
+  </text>
+  <text x="400" y="505" text-anchor="middle" fill="#7DD0F7" fill-opacity="0.45" font-family="system-ui, -apple-system, sans-serif" font-size="14" letter-spacing="2">
+    CENTRO MÉDICO BRIUS
+  </text>
+</svg>

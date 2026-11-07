@@ -1,28 +1,162 @@
 @import "tailwindcss";
 
-@theme {
-  --color-primary: #137fec;
-  --color-background-light: #f6f7f8;
-  --color-background-dark: #101922; /* Retained for tailwind compatibility if needed, but not used */
-  --font-display: "Manrope", sans-serif;
-  --font-sans: "Manrope", sans-serif; /* Set Manrope as default sans */
+/* `static` = emite TODAS las variables aunque no se usen (necesario porque
+   las referenciamos desde los alias semánticos --accent-*). */
+@theme static {
+  /* ── Marca: Azul Brius ───────────────────────────── */
+  --color-brand-50:  #EEF6FF;
+  --color-brand-100: #D9EAFF;
+  --color-brand-200: #BCDBFF;
+  --color-brand-300: #8EC5FF;
+  --color-brand-400: #59A5FF;
+  --color-brand-500: #137FEC; /* azul histórico del sitio v1: solo decorativo/grande */
+  --color-brand-600: #1668DC; /* ← ACCIÓN PRIMARIA (blanco encima = 5.2:1 ✔ AA) */
+  --color-brand-700: #1253B3;
+  --color-brand-800: #134591;
+  --color-brand-900: #143B75;
+  --color-brand-950: #0B2447;
+
+  /* ── Neutros “tinta” (grises azulados) ───────────── */
+  --color-ink-50:  #F6F9FC; /* lienzo de página */
+  --color-ink-100: #EAF0F7;
+  --color-ink-200: #D8E2EE; /* bordes */
+  --color-ink-300: #B9C8DB;
+  --color-ink-400: #8497B0;
+  --color-ink-500: #5E7390;
+  --color-ink-600: #475D7A; /* texto secundario (6.7:1 sobre blanco ✔) */
+  --color-ink-700: #34475F; /* texto de cuerpo (9.5:1 ✔) */
+  --color-ink-800: #1E3049;
+  --color-ink-900: #0F2038;
+  --color-ink-950: #0A1A33; /* títulos y bandas navy */
+
+  /* ── Medicina: celeste / azul acero ──────────────── */
+  --color-med-50:  #F0F9FF;
+  --color-med-100: #E0F3FE;
+  --color-med-200: #B9E5FB;
+  --color-med-300: #7DD0F7;
+  --color-med-400: #3DB6EE;
+  --color-med-500: #139BDB;
+  --color-med-600: #0A78B4; /* acción (blanco encima = 4.8:1 ✔) */
+  --color-med-700: #0A5F92;
+  --color-med-800: #0C4C75;
+  --color-med-900: #0E3E5F;
+  --color-med-950: #082A41;
+
+  /* ── Estética: rosa empolvado ────────────────────── */
+  --color-est-50:  #FFF6F8;
+  --color-est-100: #FFE9EF;
+  --color-est-200: #FFD3DF;
+  --color-est-300: #FCAFC5;
+  --color-est-400: #F67FA3;
+  --color-est-500: #E8527F;
+  --color-est-600: #CC2F64; /* acción (blanco encima = 5.1:1 ✔) */
+  --color-est-700: #A92454;
+  --color-est-800: #8A2047;
+  --color-est-900: #6F1E3E;
+  --color-est-950: #3E0E22;
+
+  /* ── Champagne: detalle premium (solo Estética, solo líneas/sellos) ── */
+  --color-champagne-300: #E6D3AE;
+  --color-champagne-500: #C9A86A; /* decorativo, NUNCA texto sobre blanco */
+  --color-champagne-700: #8E6F3A; /* texto permitido (4.7:1 ✔) */
+
+  /* ── Estados ─────────────────────────────────────── */
+  --color-success: #15803D;
+  --color-success-bg: #ECFDF3;
+  --color-danger:  #B42318;
+  --color-danger-bg: #FEF3F2;
+  --color-warning: #B54708;
+  --color-warning-bg: #FFFAEB;
+
+  /* ── Sombras tintadas (nunca negro puro) ─────────── */
+  --shadow-soft: 0 1px 2px rgb(10 26 51 / 0.04), 0 8px 24px -8px rgb(10 26 51 / 0.10);
+  --shadow-lift: 0 2px 4px rgb(10 26 51 / 0.05), 0 20px 40px -12px rgb(10 26 51 / 0.18);
+  --shadow-glow: 0 10px 30px -10px rgb(22 104 220 / 0.45);
+
+  /* ── Escala tipográfica fluida ───────────────────── */
+  --text-display: clamp(2.5rem, 1.5rem + 4.4vw, 4.75rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.025em;
+  --text-h1: clamp(2.25rem, 1.6rem + 2.8vw, 3.75rem);
+  --text-h1--line-height: 1.08;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h2: clamp(1.75rem, 1.35rem + 1.7vw, 2.75rem);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  --text-h3--line-height: 1.25;
 }
 
-@utility container {
-  margin-inline: auto;
-  padding-inline: 1rem;
-  @media (min-width: 1024px) {
-    padding-inline: 2.5rem;
-  }
-}
-
+/* ── Acento semántico: cambia según la sección ─────────
+   Los componentes usan bg-accent-600, text-accent-800, etc.
+   NO usan brand/med/est directamente (salvo el Home/branding global). */
 :root {
-  --background: #f6f7f8;
-  --foreground: #0d141b;
+  --accent-50: var(--color-brand-50);   --accent-100: var(--color-brand-100);
+  --accent-200: var(--color-brand-200); --accent-300: var(--color-brand-300);
+  --accent-400: var(--color-brand-400); --accent-500: var(--color-brand-500);
+  --accent-600: var(--color-brand-600); --accent-700: var(--color-brand-700);
+  --accent-800: var(--color-brand-800); --accent-900: var(--color-brand-900);
+  --accent-950: var(--color-brand-950);
+}
+[data-theme="medicina"] {
+  --accent-50: var(--color-med-50);   --accent-100: var(--color-med-100);
+  --accent-200: var(--color-med-200); --accent-300: var(--color-med-300);
+  --accent-400: var(--color-med-400); --accent-500: var(--color-med-500);
+  --accent-600: var(--color-med-600); --accent-700: var(--color-med-700);
+  --accent-800: var(--color-med-800); --accent-900: var(--color-med-900);
+  --accent-950: var(--color-med-950);
+}
+[data-theme="estetica"] {
+  --accent-50: var(--color-est-50);   --accent-100: var(--color-est-100);
+  --accent-200: var(--color-est-200); --accent-300: var(--color-est-300);
+  --accent-400: var(--color-est-400); --accent-500: var(--color-est-500);
+  --accent-600: var(--color-est-600); --accent-700: var(--color-est-700);
+  --accent-800: var(--color-est-800); --accent-900: var(--color-est-900);
+  --accent-950: var(--color-est-950);
+}
+@theme inline {
+  --color-accent-50: var(--accent-50);   --color-accent-100: var(--accent-100);
+  --color-accent-200: var(--accent-200); --color-accent-300: var(--accent-300);
+  --color-accent-400: var(--accent-400); --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600); --color-accent-700: var(--accent-700);
+  --color-accent-800: var(--accent-800); --color-accent-900: var(--accent-900);
+  --color-accent-950: var(--accent-950);
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: var(--color-ink-50);
+  color: var(--color-ink-700);
   min-height: 100vh;
+}
+
+/* Floating animation for subtle ambient depth */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: softFloat 6s ease-in-out infinite;
+}
+
+/* Accessiblity: Reduced motion override */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

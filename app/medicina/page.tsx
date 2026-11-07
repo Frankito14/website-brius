@@ -1,90 +1,149 @@
-import { Stethoscope } from "lucide-react";
-import { EspecialidadCard } from "./components/EspecialidadCard";
+import React from "react";
+import type { Metadata } from "next";
+import { Stethoscope, ArrowRight, ScanLine } from "lucide-react";
+import { buildMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { CTABand } from "@/components/ui/CTABand";
+import { SpecialtyGrid } from "./_components/SpecialtyGrid";
+import { WhatsAppIcon } from "@/components/icons/SocialIcons";
+import { waLink } from "@/lib/whatsapp";
+import { PlusMark } from "@/components/icons/PlusMark";
 
-const specialities = [
-  { name: "Alergia" },
-  {
-    name: "Cardiología",
-    sub: ["E.C.G.", "Ecocardiograma, arterial y venoso", "Ecocardiograma Doppler B/N y color", "Ergometría 12 derivaciones", "Holter 24 Hs.", "Presurometría 24 Hs."]
-  },
-  { name: "Cirugía general" },
-  { name: "Clinica Médica" },
-  { name: "Dermatología" },
-  { name: "Diabetología" },
-  { name: "Endocrinología" },
-  {
-    name: "Fonoaudiología",
-    sub: ["Audiometrías", "Logoaudiometría", "Otoemisiones acústicas", "Timpanometría"]
-  },
-  { name: "Flebología y vascular" },
-  { name: "Gastroenterología" },
-  { name: "Gerontología" },
-  { name: "Ginecología", sub: ["Pap y colpo"] },
-  { name: "Inmunología" },
-  { name: "Nefrología" },
-  { name: "Neumonología", sub: ["Espirometría"] },
-  { name: "Nutrición" },
-  { name: "Obesidad" },
-  { name: "Oftalmología" },
-  { name: "Ortopedia" },
-  { name: "O.R.L.", sub: ["Rinoscopía"] },
-  { name: "Pediatría" },
-  { name: "Reumatología" },
-  { name: "Traumatología" },
-  { name: "Traumatología Infantil" },
-  { name: "Urología" },
-];
-
-function HeroMedicina() {
-  return (
-    <section className="relative p-10 bg-gradient-to-br from-indigo-50 to-indigo-100/50">
-      <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="md:p-10">
-          <span
-            className="inline-block px-4 py-1 rounded-full bg-indigo-100 text-indigo-800 font-label-md mb-6 uppercase tracking-wider">
-            Salud
-          </span>
-          <h1 className="font-black text-6xl mb-6">Brius Medicina</h1>
-          <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-lg">
-            Profesionales altamente calificados dedicados a tu salud integral.
-          </p>
-          <div className="flex gap-4">
-            <a className="bg-indigo-400 text-white px-8 py-4 rounded-xl font-label-md shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
-              href="#contacto">Agendar Turno</a>
-            <a className="text-indigo-400 px-8 py-4 rounded-xl font-label-md hover:bg-indigo-100/90 transition-colors"
-              href="#servicios">Ver Especialidades</a>
-          </div>
-        </div>
-        <div className="relative">
-          <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#FCE4EC] rounded-full blur-3xl opacity-50"></div>
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-            <img alt="Tratamiento Facial Estético" className="w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSdLfsy8TTJq8rIysFTcRjikAMPLxyag282222cK6eS3L_1NHcERGZeVsyr78pM0_Ws6vub9oq1_eQYu-9aClqiMs6N_dcKl7G3J4m7LyOv9SrE7X2eM_UZP9JX30xifvqLHroDL0OfSpX801icEN4eZzczH1BEUJYZjybcRu62FPNDcStkGk03jqBHd6O4CHfePAUBm0RGX2zTGdXU9Zj5fcoHxdyUka4Tb4nHT3pubIaEaqRVb7GMyHWWMdgeWUcele5MF5vlwoU" />
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
+export const metadata: Metadata = buildMetadata({
+  title: "Brius Medicina — Especialidades Médicas y Estudios",
+  description:
+    "Más de 25 especialidades médicas, electrocardiograma, ecocardiograma doppler, holter, ergometría, espirometría y diagnóstico por imagen en Villa Bosch.",
+  path: "/medicina",
+});
 
 export default function Medicina() {
   return (
-    <main className="pb-20 bg-indigo-50/30 min-h-screen">
-      {/* Mini Hero */}
-      <HeroMedicina />
-      {/* Specialties List */}
-      <section className="max-w-[1200px] mx-auto px-4 lg:px-10 mt-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-indigo-950 mb-4">Nuestras Especialidades</h2>
-          <div className="w-24 h-1 bg-indigo-500 mx-auto rounded-full"></div>
-        </div>
+    <div data-theme="medicina" className="min-h-screen bg-med-50/20">
+      {/* ─────────────────────────────────────────────────────────────
+          1. MINI HERO MEDICINA (RECTILÍNEO, CELESTE)
+      ───────────────────────────────────────────────────────────── */}
+      <section className="relative pt-8 pb-14 lg:py-20 bg-gradient-to-br from-med-50 via-white to-med-100/40 border-b border-med-200/80">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <Breadcrumbs items={[{ label: "Servicios", href: "/#servicios" }, { label: "Medicina" }]} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {specialities.map((spec, index) => (
-            <EspecialidadCard key={index} spec={spec} />
-          ))}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <Badge variant="soft">
+                Salud & Especialidades
+              </Badge>
+
+              <h1 className="font-display text-h1 text-ink-950 tracking-tight text-balance">
+                Brius Medicina
+              </h1>
+
+              <p className="text-lg md:text-xl text-ink-600 leading-relaxed max-w-xl text-pretty">
+                Profesionales altamente calificados y equipamiento de precisión dedicados a tu salud integral. Cobertura en más de 25 especialidades y estudios diagnósticos.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                <Button
+                  href={waLink("Hola, quisiera agendar un turno para una especialidad médica.")}
+                  variant="whatsapp"
+                  size="lg"
+                >
+                  <WhatsAppIcon className="size-5" />
+                  Agendar Turno
+                </Button>
+
+                <Button
+                  href="#listado"
+                  variant="secondary"
+                  size="lg"
+                >
+                  Ver Especialidades
+                  <ArrowRight className="size-4" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Right side illustration / rectilinea card */}
+            <div className="lg:col-span-5 relative flex justify-center">
+              <div className="w-full max-w-sm p-6 rounded-2xl bg-white border border-med-200 shadow-lift space-y-4">
+                <div className="flex items-center justify-between pb-3 border-b border-med-100">
+                  <div className="flex items-center gap-2">
+                    <div className="size-3 rounded-full bg-med-500" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-med-800">
+                      Cuidado Médico
+                    </span>
+                  </div>
+                  <Stethoscope className="size-5 text-med-600" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-ink-950">
+                  Atención Integral y Estudios
+                </h3>
+                <p className="text-sm text-ink-600 leading-relaxed">
+                  Evaluaciones clínicas completas, seguimiento preventivo y estudios complementarios en un mismo lugar.
+                </p>
+                <div className="pt-2 text-xs font-semibold text-med-700 flex items-center gap-2">
+                  <PlusMark className="size-3 text-med-500" />
+                  <span>Cardiología, Pediatría, Traumatología y más</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-    </main>
+
+      {/* ─────────────────────────────────────────────────────────────
+          2. SPECIALTIES LIST & SEARCH
+      ───────────────────────────────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-24 space-y-12">
+        <SectionHeading
+          eyebrow="Especialidades Disponibles"
+          title="Nuestras Especialidades Médicas"
+          lead="Utilizá el buscador para encontrar rápidamente tu médico especialista o estudio clínico."
+        />
+
+        <SpecialtyGrid />
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          3. BANDA DIAGNÓSTICO POR IMAGEN
+      ───────────────────────────────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pb-16">
+        <div className="rounded-3xl bg-med-900 text-white p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-soft">
+          <div className="space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-med-300 flex items-center gap-2">
+              <ScanLine className="size-4" />
+              Diagnóstico por Imagen
+            </span>
+            <h3 className="font-display text-2xl md:text-3xl font-bold">
+              ¿Buscás realizarte un espinograma digital o estudio por imagen?
+            </h3>
+            <p className="text-sm md:text-base text-med-100 max-w-xl">
+              Somos uno de los pocos centros en la provincia de Buenos Aires en realizar espinograma digital con alta resolución.
+            </p>
+          </div>
+          <Button
+            href={waLink("Hola, quisiera solicitar información para realizarme un estudio de diagnóstico por imagen.")}
+            variant="whatsapp"
+            size="lg"
+            className="shrink-0"
+          >
+            <WhatsAppIcon className="size-4" />
+            Consultar por estudios
+          </Button>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          4. CTA BAND
+      ───────────────────────────────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pb-20">
+        <CTABand
+          eyebrow="Turnos y Consultas"
+          title="¿No encontrás tu especialidad o tenés dudas?"
+          lead="Comunicate con nuestro equipo de recepción médica por teléfono o WhatsApp para brindarte asesoramiento inmediato."
+        />
+      </section>
+    </div>
   );
 }

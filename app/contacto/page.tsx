@@ -32,21 +32,20 @@ const contactoFAQs = [
 
 export default function Contacto() {
   return (
-    <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-10 lg:py-16 flex flex-col gap-16 lg:gap-24">
+    <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-10 lg:py-16 flex flex-col gap-4">
       {/* Breadcrumbs */}
       <Breadcrumbs items={[{ label: "Contacto" }]} />
 
       {/* Header */}
-      <section className="max-w-3xl">
+      <section className="max-w-3xl  mb-16">
         <SectionHeading
-          eyebrow="Atención al Paciente"
           title="Contacto y Ubicación"
           lead="Estamos para ayudarte. Podés llamarnos, escribirnos por WhatsApp o visitarnos en nuestro centro en Villa Bosch."
         />
       </section>
 
       {/* 4 Quick Contact Cards */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
         {/* Card 1: Phone */}
         <a
           href={`tel:${site.contact.phoneHref}`}
@@ -120,7 +119,7 @@ export default function Contacto() {
       </section>
 
       {/* Location Map Section */}
-      <section className="space-y-6">
+      <section className="space-y-6  mb-16">
         <h3 className="font-display text-2xl font-bold text-ink-950">
           Ubicación en Villa Bosch
         </h3>
@@ -128,7 +127,7 @@ export default function Contacto() {
       </section>
 
       {/* Dedicated Contact Form */}
-      <section className="rounded-3xl bg-white border border-ink-200 p-8 lg:p-12 shadow-soft space-y-6">
+      <section className="rounded-3xl bg-white border border-ink-200 p-8 lg:p-12 shadow-soft space-y-6  mb-32">
         <div className="max-w-xl space-y-2">
           <span className="text-xs font-bold uppercase tracking-wider text-accent-700 block">
             Formulario de Consulta
@@ -146,9 +145,8 @@ export default function Contacto() {
       </section>
 
       {/* FAQ Contacto */}
-      <section className="max-w-4xl mx-auto w-full space-y-8">
+      <section className="max-w-4xl mx-auto w-full space-y-8 mb-32">
         <SectionHeading
-          eyebrow="Consultas Rápidas"
           title="Preguntas sobre Turnos y Atención"
           align="center"
         />

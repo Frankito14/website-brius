@@ -134,7 +134,7 @@ export default function Header() {
               alt="Centro Médico Brius"
               width={64}
               height={64}
-              className="object-cover object-center"
+              className="object-cover object-center scale-75 sm:scale-100"
             />
             <div className="flex flex-col">
               <span className="font-display font-semibold text-lg tracking-tight text-ink-950 leading-none">
@@ -270,11 +270,13 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="size-11 rounded-full bg-white border border-ink-200 text-ink-950 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-emerald-600"
+              className="size-11 rounded-full bg-white border border-ink-200 text-ink-950 flex items-center justify-center transition-transform duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-emerald-600"
               aria-label={isMobileOpen ? "Cerrar menú" : "Abrir menú de navegación"}
               aria-expanded={isMobileOpen}
             >
-              {isMobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+              <span className="transition-transform duration-200 inline-flex items-center justify-center">
+                {isMobileOpen ? <X className="size-6 rotate-0 transition-transform duration-200" /> : <Menu className="size-6 transition-transform duration-200" />}
+              </span>
             </button>
           </div>
         </div>
@@ -282,7 +284,7 @@ export default function Header() {
         {/* Mobile Fullscreen Drawer */}
         {isMobileOpen && (
           <div
-            className="fixed inset-0 top-16 z-[60] bg-white flex flex-col justify-between p-6 overflow-y-auto lg:hidden animate-in fade-in duration-200"
+            className="fixed min-h-svh inset-x-0 top-16 bottom-0 z-50 bg-white flex flex-col justify-between p-6 lg:hidden animate-mobile-drawer will-change-transform shadow-xl"
             role="dialog"
             aria-modal="true"
             aria-label="Menú de navegación móvil"
@@ -292,14 +294,14 @@ export default function Header() {
                 <Link
                   href="/"
                   onClick={() => setIsMobileOpen(false)}
-                  className="font-display text-2xl font-bold text-ink-950 py-2 border-b border-ink-100"
+                  className="font-display text-xl font-bold text-ink-950 py-2 border-b border-ink-100"
                 >
                   Inicio
                 </Link>
                 <Link
                   href="/nosotros"
                   onClick={() => setIsMobileOpen(false)}
-                  className="font-display text-2xl font-bold text-ink-950 py-2 border-b border-ink-100"
+                  className="font-display text-xl font-bold text-ink-950 py-2 border-b border-ink-100"
                 >
                   Nosotros
                 </Link>
@@ -309,7 +311,7 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={() => setMobileServicesExpanded(!mobileServicesExpanded)}
-                    className="flex w-full items-center justify-between font-display text-2xl font-bold text-ink-950"
+                    className="flex w-full items-center justify-between font-display text-xl font-bold text-ink-950"
                   >
                     <span>Servicios</span>
                     <ChevronDown
@@ -326,16 +328,14 @@ export default function Header() {
                         onClick={() => setIsMobileOpen(false)}
                         className="flex items-center gap-3 p-3 rounded-xl bg-med-50 text-med-950 font-semibold text-lg"
                       >
-                        <Stethoscope className="size-5 text-med-600" />
-                        Brius Medicina
+                        Medicina
                       </Link>
                       <Link
                         href="/estetica"
                         onClick={() => setIsMobileOpen(false)}
                         className="flex items-center gap-3 p-3 rounded-xl bg-est-50 text-est-950 font-semibold text-lg"
                       >
-                        <Sparkles className="size-5 text-est-600" />
-                        Brius Estética
+                        Estética
                       </Link>
                     </div>
                   )}
@@ -344,14 +344,14 @@ export default function Header() {
                 <Link
                   href="/coberturas"
                   onClick={() => setIsMobileOpen(false)}
-                  className="font-display text-2xl font-bold text-ink-950 py-2 border-b border-ink-100"
+                  className="font-display text-xl font-bold text-ink-950 py-2 border-b border-ink-100"
                 >
                   Coberturas
                 </Link>
                 <Link
                   href="/contacto"
                   onClick={() => setIsMobileOpen(false)}
-                  className="font-display text-2xl font-bold text-ink-950 py-2 border-b border-ink-100"
+                  className="font-display text-xl font-bold text-ink-950 py-2 border-b border-ink-100"
                 >
                   Contacto
                 </Link>
@@ -364,6 +364,10 @@ export default function Header() {
                   <MapPin className="size-4 text-emerald-600 shrink-0" />
                   {site.address.street}, {site.address.locality}
                 </p>
+                <p className="flex items-center gap-2">
+                  <Phone className="size-4 text-emerald-600 shrink-0" />
+                  {site.contact.phoneDisplay}
+                </p>
                 {site.hours.length > 0 && (
                   <p className="flex items-center gap-2">
                     <Clock className="size-4 text-emerald-600 shrink-0" />
@@ -371,28 +375,6 @@ export default function Header() {
                   </p>
                 )}
               </div>
-            </div>
-
-            {/* Bottom Actions in Mobile Drawer */}
-            <div className="pt-6 border-t border-ink-200 flex flex-col gap-3 pb-8">
-              <Button
-                href={waLink("Hola, quisiera pedir un turno.")}
-                variant="whatsapp"
-                size="lg"
-                className="w-full"
-              >
-                <WhatsAppIcon className="size-5" />
-                Pedir turno por WhatsApp
-              </Button>
-              <Button
-                href={`tel:${site.contact.phoneHref}`}
-                variant="secondary"
-                size="lg"
-                className="w-full"
-              >
-                <Phone className="size-5 text-emerald-600" />
-                Llamar: {site.contact.phoneDisplay}
-              </Button>
             </div>
           </div>
         )}

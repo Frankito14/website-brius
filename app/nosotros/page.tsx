@@ -7,6 +7,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTABand } from "@/components/ui/CTABand";
 import { PlusMark } from "@/components/icons/PlusMark";
 import Image from "next/image";
+import { Reveal } from "@/components/ui/Reveal";
+
 
 export const metadata: Metadata = buildMetadata({
   title: "Quiénes Somos — Nuestra Historia y Vocación Médica",
@@ -117,11 +119,13 @@ export default function Nosotros() {
       </section>
 
       {/* CTA Band */}
-      <CTABand
-        eyebrow="Cuidamos tu salud"
-        title="Formá parte de nuestra comunidad de pacientes."
-        lead="Acercate  o contactanos para programar tu turno en cualquiera de nuestras especialidades."
-      />
+      <Reveal delayMs={200}>
+        <CTABand
+          eyebrow="Cuidamos tu salud"
+          title="Formá parte de nuestra comunidad de pacientes."
+          lead="Acercate  o contactanos para programar tu turno en cualquiera de nuestras especialidades."
+        />
+      </Reveal>
     </div>
   );
 }

@@ -23,7 +23,7 @@ export function Button({
     "inline-flex items-center justify-center font-sans font-semibold rounded-lg transition-all duration-200 cursor-pointer select-none group text-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-600 disabled:opacity-50 disabled:pointer-events-none active:translate-y-0";
 
   const sizeStyles = {
-    md: "h-12 px-6 text-base gap-2 hover:-translate-y-0.5",
+    md: "h-12 py-3 px-2 sm:py-0 sm:px-6 text-base gap-2 hover:-translate-y-0.5",
     lg: "h-12 px-6 text-md gap-3 hover:-translate-y-0.5",
   };
 

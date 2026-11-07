@@ -12,6 +12,8 @@ import { WhatsAppIcon } from "@/components/icons/SocialIcons";
 import { waLink } from "@/lib/whatsapp";
 import { PlusMark } from "@/components/icons/PlusMark";
 import Image from "next/image";
+import { Reveal } from "@/components/ui/Reveal";
+
 
 export const metadata: Metadata = buildMetadata({
   title: "Brius Medicina — Especialidades Médicas y Estudios",
@@ -50,7 +52,7 @@ export default function Medicina() {
                 Especialidades Médicas
               </Badge>
 
-              <h1 className="font-display text-h1 tracking-tight text-balance">
+              <h1 className="font-display text-6xl py-8 sm:py-0 sm:text-h1 tracking-tight text-balance">
                 Medicina
               </h1>
 
@@ -102,31 +104,33 @@ export default function Medicina() {
       {/* ─────────────────────────────────────────────────────────────
           3. BANDA DIAGNÓSTICO POR IMAGEN
       ───────────────────────────────────────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pb-16">
-        <div className="rounded-3xl bg-med-900 text-white p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-soft">
-          <div className="space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-med-300 flex items-center gap-2">
-              <ScanLine className="size-4" />
-              Diagnóstico por Imagen
-            </span>
-            <h3 className="font-display text-2xl md:text-3xl font-bold">
-              ¿Buscás realizarte un estudio por imagen?
-            </h3>
-            <p className="text-sm md:text-base text-med-100 max-w-xl">
-              Somos uno de los pocos centros en la provincia de Buenos Aires en realizar espinograma digital con alta resolución.
-            </p>
+      <Reveal delayMs={200}>
+        <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pb-16">
+          <div className="rounded-3xl bg-med-900 text-white p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-soft">
+            <div className="space-y-3">
+              <span className="text-xs font-bold uppercase tracking-widest text-med-300 flex items-center gap-2">
+                <ScanLine className="size-4" />
+                Diagnóstico por Imagen
+              </span>
+              <h3 className="font-display text-2xl md:text-3xl font-bold">
+                ¿Buscás realizarte un estudio por imagen?
+              </h3>
+              <p className="text-sm md:text-base text-med-100 max-w-xl">
+                Somos uno de los pocos centros en la provincia de Buenos Aires en realizar espinograma digital con alta resolución.
+              </p>
+            </div>
+            <Button
+              href={waLink("Hola, quisiera solicitar información para realizarme un estudio de diagnóstico por imagen.")}
+              variant="whatsapp"
+              size="lg"
+              className="shrink-0"
+            >
+              <WhatsAppIcon className="size-4" />
+              Consultar por estudios
+            </Button>
           </div>
-          <Button
-            href={waLink("Hola, quisiera solicitar información para realizarme un estudio de diagnóstico por imagen.")}
-            variant="whatsapp"
-            size="lg"
-            className="shrink-0"
-          >
-            <WhatsAppIcon className="size-4" />
-            Consultar por estudios
-          </Button>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       {/* ─────────────────────────────────────────────────────────────
           4. CTA BAND

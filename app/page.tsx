@@ -41,61 +41,65 @@ export default function Home() {
         {/* Imagen de fondo con overlay para legibilidad */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/image.png"
+            src="/images/landing/bg-hero.jpg"
             alt="Centro Médico Brius"
             fill
             priority
             className="object-cover object-center"
           />
           {/* Capas de oscurecimiento y degradé hacia el lienzo general */}
-          <div className="absolute inset-0 bg-brand-950/70" />
+          <div className="absolute inset-0 bg-brand-950/80" />
         </div>
 
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[75vh]">
-            {/* Left Column: Editorial Headline & Actions */}
-            <div className="lg:col-span-7 flex flex-col items-start gap-6">
-              <h1 className="font-display text-display text-white tracking-tight text-balance">
-                Asistencia médica desde el {" "}
-                <em className="italic text-emerald-300 font-normal">
-                  {site.foundedYear}
-                </em>
-              </h1>
+          <Reveal delayMs={10}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[75vh]">
+              {/* Left Column: Editorial Headline & Actions */}
+              <div className="lg:col-span-7 flex flex-col items-start gap-6">
+                <h1 className="font-display pt-16 sm:pt-0 text-display text-white tracking-tight text-balance">
+                  Asistencia médica desde el {" "}
+                  <em className="italic text-emerald-300 font-normal">
+                    {site.foundedYear}
+                  </em>
+                </h1>
 
-              <p className="text-lg text-ink-200 leading-relaxed max-w-xl text-pretty">
-                Abocamos nuestros servicios a la gente que más lo necesitaba. Así fuimos creciendo y desarrollándonos en las distintas áreas de la salud.
-              </p>
+                <p className="text-lg text-ink-200 leading-relaxed max-w-xl text-pretty">
+                  Abocamos nuestros servicios a la gente que más lo necesitaba. Así fuimos creciendo y desarrollándonos en las distintas áreas de la salud.
+                </p>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto">
-                <Button
-                  href={waLink("Hola, quisiera solicitar un turno en Centro Médico Brius.")}
-                  variant="whatsapp"
-                  size="lg"
-                  className="w-full sm:w-auto"
-                >
-                  <WhatsAppIcon className="size-5" />
-                  Solicitar un Turno
-                </Button>
+                {/* CTAs */}
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto">
+                  <Button
+                    href={waLink("Hola, quisiera solicitar un turno en Centro Médico Brius.")}
+                    variant="whatsapp"
+                    size="lg"
+                    className="w-full sm:w-auto"
+                  >
+                    <WhatsAppIcon className="size-5" />
+                    Solicitar un Turno
+                  </Button>
 
-                <Button
-                  href="/medicina"
-                  variant="inverse"
-                  size="lg"
-                  className="w-full sm:w-auto"
-                >
-                  Ver especialidades
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                  <Button
+                    href="/medicina"
+                    variant="inverse"
+                    size="lg"
+                    className="w-full sm:w-auto"
+                  >
+                    Ver especialidades
+                    <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
               </div>
+
+              {/* Right Column: Hero Visual with Ambient Glow and Floating Badges */}
+              <div className="lg:col-span-4 relative w-full flex items-center justify-center">
+
+
+              </div>
+
             </div>
+          </Reveal>
 
-            {/* Right Column: Hero Visual with Ambient Glow and Floating Badges */}
-            <div className="lg:col-span-4 relative w-full flex items-center justify-center">
-
-
-            </div>
-          </div>
         </div>
       </section>
       {/* ─────────────────────────────────────────────────────────────

@@ -55,7 +55,7 @@ export function SpecialtyGrid() {
           )}
         </div>
 
-        <div className="text-sm font-semibold text-med-800 whitespace-nowrap self-end sm:self-center">
+        <div className="text-sm font-semibold text-med-800 whitespace-nowrap self-end sm:self-center pr-4">
           Mostrando {filteredEspecialidades.length} de {especialidades.length} especialidades
         </div>
       </div>
@@ -119,7 +119,7 @@ export function SpecialtyGrid() {
                         aria-expanded={isExpanded}
                         className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-med-100 text-med-800 text-xs font-semibold hover:bg-med-200 transition-colors cursor-pointer select-none"
                       >
-                        <span>{esp.estudios!.length} estudios</span>
+                        <span>Ver más</span>
                         <ChevronDown
                           className={cn(
                             "size-3.5 transition-transform duration-200",

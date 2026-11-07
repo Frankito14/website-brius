@@ -9,6 +9,8 @@ import { CTABand } from "@/components/ui/CTABand";
 import { WhatsAppIcon } from "@/components/icons/SocialIcons";
 import { waLink, waMessages } from "@/lib/whatsapp";
 import { PlusMark } from "@/components/icons/PlusMark";
+import Image from "next/image";
+
 
 export const metadata: Metadata = buildMetadata({
   title: "Brius Estética — Tratamientos Faciales, Corporales y Láser",
@@ -23,27 +25,38 @@ export default function Estetica() {
       {/* ─────────────────────────────────────────────────────────────
           1. MINI HERO ESTÉTICA (ORGÁNICO, ROSA, SUAVE)
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative pt-8 pb-14 lg:py-20 bg-gradient-to-br from-est-50 via-white to-est-100/50 border-b border-est-200/80 overflow-hidden">
-        {/* Ambient blurred glow */}
-        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-80 h-80 bg-est-200/50 rounded-full blur-3xl pointer-events-none" />
-
+      <section className="relative pt-8 pb-14 lg:pt-24 lg:py-24 border-b border-est-200/80 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/landing/estetica-card.png"
+            alt="Estética en Centro Médico Brius"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          {/* Capas de oscurecimiento y degradé hacia el lienzo general */}
+          <div className="absolute inset-0 bg-est-950/60" />
+        </div>
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
-          <Breadcrumbs items={[{ label: "Servicios", href: "/#servicios" }, { label: "Estética" }]} />
+          {
+            /*
+            <Breadcrumbs items={[{ label: "Servicios", href: "/#servicios" }, { label: "Estética" }]} />
+            */
+          }
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-6 text-white">
               <Badge variant="soft">
                 Bienestar & Belleza
               </Badge>
 
               <h1 className="font-display text-h1 text-ink-950 tracking-tight text-balance">
-                Brius{" "}
-                <em className="italic text-est-600 font-normal">
+                <em className="text-white font-normal">
                   Estética
                 </em>
               </h1>
 
-              <p className="text-lg md:text-xl text-ink-600 leading-relaxed max-w-xl text-pretty">
+              <p className="text-lg md:text-xl text-ink-200/90 leading-relaxed max-w-xl text-pretty">
                 Descubrí un espacio diseñado para potenciar tu belleza natural y bienestar con tecnología de vanguardia, confort y estricta supervisión de profesionales médicos.
               </p>
 
@@ -52,6 +65,7 @@ export default function Estetica() {
                   href={waLink("Hola, quisiera agendar un turno para estética.")}
                   variant="whatsapp"
                   size="lg"
+                  className="bg-pink-500 hover:bg-pink-600 transition"
                 >
                   <WhatsAppIcon className="size-5" />
                   Agendar Turno
@@ -70,24 +84,7 @@ export default function Estetica() {
 
             {/* Arch Masked Visual Feature */}
             <div className="lg:col-span-5 relative flex justify-center">
-              <div className="w-full max-w-sm rounded-t-[999px] rounded-b-3xl bg-gradient-to-b from-est-100 to-white p-8 border border-est-200 shadow-lift flex flex-col items-center text-center space-y-4">
-                <div className="size-20 rounded-full bg-white shadow-soft flex items-center justify-center text-est-600 mb-2">
-                  <Sparkles className="size-10 stroke-[1.5]" />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-est-800">
-                  Cuidado Personal Integral
-                </span>
-                <h3 className="font-display text-2xl font-bold text-ink-950">
-                  Tratamientos No Invasivos
-                </h3>
-                <p className="text-sm text-ink-600 leading-relaxed max-w-xs">
-                  Planes personalizados para rostro y cuerpo con protocolos médicos seguros y confortables.
-                </p>
-                <div className="pt-2 text-xs font-semibold text-est-700 flex items-center gap-1.5">
-                  <PlusMark className="size-3 text-est-500" />
-                  <span>Primera consulta corporal sin cargo</span>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

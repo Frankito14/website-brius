@@ -11,6 +11,7 @@ import { SpecialtyGrid } from "./_components/SpecialtyGrid";
 import { WhatsAppIcon } from "@/components/icons/SocialIcons";
 import { waLink } from "@/lib/whatsapp";
 import { PlusMark } from "@/components/icons/PlusMark";
+import Image from "next/image";
 
 export const metadata: Metadata = buildMetadata({
   title: "Brius Medicina — Especialidades Médicas y Estudios",
@@ -25,21 +26,35 @@ export default function Medicina() {
       {/* ─────────────────────────────────────────────────────────────
           1. MINI HERO MEDICINA (RECTILÍNEO, CELESTE)
       ───────────────────────────────────────────────────────────── */}
-      <section className="relative pt-8 pb-14 lg:py-20 bg-gradient-to-br from-med-50 via-white to-med-100/40 border-b border-med-200/80">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          <Breadcrumbs items={[{ label: "Servicios", href: "/#servicios" }, { label: "Medicina" }]} />
-
+      <section className="relative pt-6 sm:pt-8 lg:pt-24 pb-14 sm:pb-16 lg:pb-24 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/landing/medicina-card.png"
+            alt="Médicina en Centro Médico Brius"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          {/* Capas de oscurecimiento y degradé hacia el lienzo general */}
+          <div className="absolute inset-0 bg-brand-950/70" />
+        </div>
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+          {
+            /*
+              <Breadcrumbs items={[{ label: "Servicios", href: "/#servicios" }, { label: "Medicina" }]} />
+            */
+          }
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-6 text-white">
               <Badge variant="soft">
-                Salud & Especialidades
+                Especialidades Médicas
               </Badge>
 
-              <h1 className="font-display text-h1 text-ink-950 tracking-tight text-balance">
-                Brius Medicina
+              <h1 className="font-display text-h1 tracking-tight text-balance">
+                Medicina
               </h1>
 
-              <p className="text-lg md:text-xl text-ink-600 leading-relaxed max-w-xl text-pretty">
+              <p className="text-lg md:text-xl text-ink-200/90 leading-relaxed max-w-xl text-pretty">
                 Profesionales altamente calificados y equipamiento de precisión dedicados a tu salud integral. Cobertura en más de 25 especialidades y estudios diagnósticos.
               </p>
 
@@ -66,27 +81,7 @@ export default function Medicina() {
 
             {/* Right side illustration / rectilinea card */}
             <div className="lg:col-span-5 relative flex justify-center">
-              <div className="w-full max-w-sm p-6 rounded-2xl bg-white border border-med-200 shadow-lift space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-med-100">
-                  <div className="flex items-center gap-2">
-                    <div className="size-3 rounded-full bg-med-500" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-med-800">
-                      Cuidado Médico
-                    </span>
-                  </div>
-                  <Stethoscope className="size-5 text-med-600" />
-                </div>
-                <h3 className="font-display text-xl font-bold text-ink-950">
-                  Atención Integral y Estudios
-                </h3>
-                <p className="text-sm text-ink-600 leading-relaxed">
-                  Evaluaciones clínicas completas, seguimiento preventivo y estudios complementarios en un mismo lugar.
-                </p>
-                <div className="pt-2 text-xs font-semibold text-med-700 flex items-center gap-2">
-                  <PlusMark className="size-3 text-med-500" />
-                  <span>Cardiología, Pediatría, Traumatología y más</span>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -97,8 +92,7 @@ export default function Medicina() {
       ───────────────────────────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-24 space-y-12">
         <SectionHeading
-          eyebrow="Especialidades Disponibles"
-          title="Nuestras Especialidades Médicas"
+          title="Nuestras Especialidades"
           lead="Utilizá el buscador para encontrar rápidamente tu médico especialista o estudio clínico."
         />
 
@@ -116,7 +110,7 @@ export default function Medicina() {
               Diagnóstico por Imagen
             </span>
             <h3 className="font-display text-2xl md:text-3xl font-bold">
-              ¿Buscás realizarte un espinograma digital o estudio por imagen?
+              ¿Buscás realizarte un estudio por imagen?
             </h3>
             <p className="text-sm md:text-base text-med-100 max-w-xl">
               Somos uno de los pocos centros en la provincia de Buenos Aires en realizar espinograma digital con alta resolución.
